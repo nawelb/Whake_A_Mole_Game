@@ -1,0 +1,49 @@
+
+.container{
+    padding-top: 60px;
+}
+
+.title{
+    font-family: Impact;
+    color: grad;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h1{
+    font-size: 72px;
+  background: -webkit-linear-gradient(rgb(253, 8, 8), rgb(30, 128, 240));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.grid{
+    border:solid;
+    border-width: 5px;
+    padding:10px;
+    justify-content: center;
+    display:flex;
+    flex-wrap:wrap;
+     
+} 
+
+.square{
+    width: 200px;
+    height: 200px;
+    border:solid;
+    border-width: 5px;
+    border-color: black;
+}
+.mole{
+    background-image: url('image/mole.jpg');
+    background-size: cover;
+}
+
+.result{   
+    padding:10px;
+    justify-content: center;
+}
+#h5{
+    margin-bottom: 40px;
+}
+
