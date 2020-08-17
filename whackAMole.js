@@ -1,7 +1,10 @@
 const square = document.querySelectorAll('.square');
 const mole = document.querySelectorAll('.mole');
-let timeLeft = document.querySelector('#timeLeft');
+const timeLeft = document.querySelector('#timeLeft');
+const message = document.querySelector('#message');
+const timeGame = document.querySelector('#timeGame');
 let score = document.querySelector('#result');
+let timerId;
 var randomPosition;
 var timer;
 let result = 0;
@@ -17,9 +20,9 @@ function randomSquare(){
     hitPosition=randomPosition.id;
 }
 
-square.forEach(id => {
-    id.addEventListener('mouseup', ()=>{
-        if(id.id ===hitPosition && currentTime !==0){
+square.forEach(card => {
+    card.addEventListener('mouseup', ()=>{
+        if(card.id ===hitPosition && currentTime !==0){
             result++
             score.textContent=result;
         }
@@ -28,28 +31,22 @@ square.forEach(id => {
 })
 
 function moveMole(){
-    var timerId = null;
-    timerId = setInterval (randomSquare, 1000);
-    if(timeLeft===0){
-        clearInterval(timerId);
-    }
+    timerId = null;
+    timerId = setInterval(randomSquare, 1000);
+
 }
 
 moveMole();
 
+
 function countDown(){
-  
        currentTime--
        timeLeft.textContent=currentTime;
 
     if(currentTime===0){
-        currentTime=0;
-        square.forEach(className => {
-            className.classList.remove('mole')
-        })
         clearInterval(timer);
-       // alert('GameOver ! your final score is '+result+ '.');
-        
+        clearInterval(timerId)
+        message.textContent=`Your final score is ${result}.`
     }
 }
 
